@@ -20,6 +20,11 @@ const Chat = () => {
   // Establish socket connection when the component mounts
   useEffect(() => {
     connectToSocket();
+    return () => {
+      if (ws) {
+        ws.close();
+      }
+    };
   }, []);
 
   const connectToSocket = () => {
@@ -80,11 +85,11 @@ const Chat = () => {
       credentials: 'include',
     })
       .then(() => {
+        if(ws) ws.close();
         setWs(null);
         setId(null);
         setUserName(null);
         setRedirect(true);  
-        ws.close();
       });
   };
 
@@ -138,7 +143,7 @@ const Chat = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center">
+    <div className="min-h-screen flex flex-col items-center ">
       <Header />
       <div className="Chat-area h-auto w-screen md:w-3/4 lg:w flex flex-grow p-2 md:py-5 lg:py-8 md:px-7 lg:px-12 justify-center font-semibold">
         <div className="w-1/4 md:w-1/3 bg-blue-700 rounded-sm flex flex-col">
