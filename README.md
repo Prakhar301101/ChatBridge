@@ -1,7 +1,10 @@
 # Chat application
 
 ## Tech Stack 
-FrontEnd: React,Tailwind CSS
-BackEnd: ExpressJs
-Database: MongoDB
-Authentication: JWT
+<ul>
+  <li>FrontEnd: React,Tailwind CSS</li>
+  <li>BackEnd: ExpressJs</li>
+  <li>Database: MongoDB</li>
+  <li>Authentication: JWT</li>
+  <li>Protocols: HTTP and WebSockets</li>
+</ul>
